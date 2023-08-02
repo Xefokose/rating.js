@@ -1,0 +1,16 @@
+function setRating(rating) {
+  const ratingStars = document.querySelectorAll('.rating-star');
+  ratingStars.forEach((star, index) => {
+    star.classList.toggle('active', index < rating);
+  });
+}
+
+function handleClick(event) {
+  const target = event.target;
+  if (target.classList.contains('rating-star')) {
+    const rating = parseInt(target.getAttribute('data-rating'));
+    const ratingValue = document.getElementById('rating-value');
+    ratingValue.value = rating;
+    setRating(rating);
+  }
+}
